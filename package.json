@@ -1,0 +1,48 @@
+{
+  "name": "rxjs-react",
+  "version": "1.0.0",
+  "description": "The right way When using RxJS in React.",
+  "main": "rxjs-react/index.ts",
+  "scripts": {
+    "dev": "cross-env TS_NODE_PROJECT=\"tsconfig-for-webpack-config.json\" webpack serve",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MurakamiKennzo/rxjs-react.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MurakamiKennzo/rxjs-react/issues"
+  },
+  "homepage": "https://github.com/MurakamiKennzo/rxjs-react#readme",
+  "dependencies": {
+    "ramda": "^0.27.1",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-router-dom": "^5.2.0",
+    "rxjs": "^6.6.3"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.3",
+    "@babel/preset-env": "^7.12.1",
+    "@babel/preset-react": "^7.12.5",
+    "@babel/preset-typescript": "^7.12.1",
+    "@types/node": "^14.14.9",
+    "@types/ramda": "^0.27.32",
+    "@types/react": "^16.9.56",
+    "@types/react-dom": "^16.9.9",
+    "@types/react-router-dom": "^5.1.6",
+    "@types/webpack": "^4.41.25",
+    "@types/webpack-dev-server": "^3.11.1",
+    "babel-loader": "^8.2.1",
+    "cross-env": "^7.0.2",
+    "html-webpack-plugin": "^4.5.0",
+    "ts-node": "^9.0.0",
+    "typescript": "^4.1.2",
+    "webpack": "^5.6.0",
+    "webpack-cli": "^4.2.0",
+    "webpack-dev-server": "^3.11.0"
+  }
+}

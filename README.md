@@ -13,13 +13,13 @@ In RxJS, everything is a stream, any effect is a stream IO, if you think somethi
 
 Thanks for [André Staltz](https://github.com/staltz) and his [@cycle/react](https://github.com/cyclejs/react), I get many inspirations. 
 
-Think React is the outside world, you do pure thing only in your code, and let React do dirty thing for you. Just declare your input stream and output stream, and everything is ok. It's some special driver in [Cycle.js](https://github.com/cyclejs/cyclejs).
+Think React is the outside world, you do pure things only in your code, and let React do dirty things for you. Just declare your input stream and output stream, and everything is ok. It's some special driver in [Cycle.js](https://github.com/cyclejs/cyclejs).
 
 ## Usage
 
 ### For static web page
 
-I build an example in the / path, if you run the app, you will see 'hello world'.
+I code an example in the / path, if you run the app, you will see 'hello world'.
 
 ```ts
 /** @jsx createRxReactElement */
@@ -45,7 +45,7 @@ export default Home
 
 ### For Props down
 
-If push some props to your app, you can see it at `sources.react.props`, It's an Observable any you can map to do what you want.
+If you push some props to app, you can see it at `sources.react.props`, It's an Observable and you can map to do what you want.
 
 ```ts
 /** @jsx createRxReactElement */
@@ -81,7 +81,7 @@ export default Props
 
 I provide the special `sel` attributes to split your logic and view.
 
-Give an `JSX.Element` a `sel` attributes, and select it by `sources.react.select(sel)`, and then use event function to spec the action.
+Give an `JSX.Element` a `sel` attributes, and select it by `sources.react.select(sel)`, and then use `event` function to spec the action.
 
 ```ts
 /** @jsx createRxReactElement */
@@ -132,14 +132,14 @@ export default Count
 
 ### For global State
 
-If you know Lens, you can using global state as a local state. If not, I'll probably not teach you, you can find it at [Ramda.js](https://ramdajs.com/).
+If you know Lens, you can using global state as a local state. If not, I'll not teach you, you can find it at [Ramda.js](https://ramdajs.com/).
 
 ```ts
 /** @jsx createRxReactElement */
 import { Main, rxReact, createRxReactElement, Reducer, withLens } from '@rxjs-react'
 import { merge, Observable, of, combineLatest } from 'rxjs'
 import { map, mapTo, pluck } from 'rxjs/operators'
-import { always, assoc, identity, lens, lensProp } from 'ramda'
+import { filter, always, assoc, identity, lens, lensProp } from 'ramda'
 
 interface State {
   list: ({ name: string, id: number })[]
@@ -190,7 +190,7 @@ const Todos: Main<{}, State['list']> = sources => {
                     .pipe(
                       pluck('target', 'dataset', 'id'),
                       map(x => +x),
-                      map((id: number) => list => list.filter(x => x.id !== id ))
+                      map((id: number) => filter<State['list'][0]>(x => x.id !== id ))
                     )
 
   const reducer$ = delete$

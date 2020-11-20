@@ -2,7 +2,7 @@
 import { Main, rxReact, createRxReactElement, Reducer, withLens } from '@rxjs-react'
 import { merge, Observable, of, combineLatest } from 'rxjs'
 import { map, mapTo, pluck } from 'rxjs/operators'
-import { always, assoc, identity, lens, lensProp } from 'ramda'
+import { filter, always, assoc, identity, lens, lensProp } from 'ramda'
 
 interface State {
   list: ({ name: string, id: number })[]
@@ -53,7 +53,7 @@ const Todos: Main<{}, State['list']> = sources => {
                     .pipe(
                       pluck('target', 'dataset', 'id'),
                       map(x => +x),
-                      map((id: number) => list => list.filter(x => x.id !== id ))
+                      map((id: number) => filter<State['list'][0]>(x => x.id !== id ))
                     )
 
   const reducer$ = delete$

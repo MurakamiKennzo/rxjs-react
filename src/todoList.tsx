@@ -1,7 +1,7 @@
 /** @jsx createRxReactElement */
 import { Main, rxReact, createRxReactElement, Reducer, withLens } from '@rxjs-react'
 import { merge, Observable, of, combineLatest } from 'rxjs'
-import { map, mapTo, pluck, tap } from 'rxjs/operators'
+import { map, mapTo, pluck } from 'rxjs/operators'
 import { always, assoc, identity, lens, lensProp } from 'ramda'
 
 interface State {

@@ -37,7 +37,7 @@ const Moderator: FC<ModeratorProps> = ({
     componentRef,
   })
 
-  return createElement(component, reactProps, ...reactProps.children || [])
+  return createElement(component, reactProps, reactProps.children)
 }
 
 const createReactProps = ({

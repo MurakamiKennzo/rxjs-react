@@ -20,7 +20,7 @@ class ReactSource<T = any> {
     return new ReactSource<T>(sel, this._scope, this._props$)
   }
 
-  public event(evType: string): Observable<any> {
+  public event(evType: string): Observable<never> {
     if(this._sel === null) {
       return empty()
     } else {
